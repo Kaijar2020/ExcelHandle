@@ -36,10 +36,10 @@ public class KeywordSearchScript {
         DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
 
         
-        String excelFilePath = "C:\\Users\\Ayon\\Downloads\\Excel.xlsx";
+        String excelFilePath = ".\\data\\Excel.xlsx";
         try (FileInputStream fis = new FileInputStream(excelFilePath);
              Workbook workbook = new XSSFWorkbook(fis);
-             FileOutputStream fos = new FileOutputStream(excelFilePath)) {
+             FileOutputStream fileOutputStream = new FileOutputStream(excelFilePath)) {
 
             
             Sheet worksheet = workbook.getSheet(dayOfWeek.toString());
@@ -78,7 +78,7 @@ public class KeywordSearchScript {
             }
 
          
-            workbook.write(fos);
+            workbook.write(fileOutputStream);
         } catch (Exception e) {
             e.printStackTrace();
         }
